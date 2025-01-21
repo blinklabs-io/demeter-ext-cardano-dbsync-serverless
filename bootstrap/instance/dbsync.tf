@@ -152,6 +152,7 @@ resource "kubernetes_deployment_v1" "db_sync" {
             requests = var.dbsync_resources.requests
           }
 
+          # TODO update to use support custom config not only empty and default config
           args = var.empty_args ? [] : [
             "--config /etc/dbsync/db-sync-config.json",
             "--socket-path /node-ipc/node.socket",
